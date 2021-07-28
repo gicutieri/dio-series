@@ -10,6 +10,7 @@ namespace dio_series
         private string Descricao { get; set; }
         private int Ano { get; set; }
         private bool Excluido { get; set; }
+        private bool Assistida { get; set; }
 
         //métodos
         public Serie(int id, Genero genero, string titulo, string descricao, int ano){
@@ -19,6 +20,7 @@ namespace dio_series
             this.Descricao = descricao;
             this.Ano = ano;
             this.Excluido = false;
+            this.Assistida = false;
         }
 
         public override string ToString(){
@@ -27,7 +29,8 @@ namespace dio_series
             retorno += "Título: " + this.Titulo + Environment.NewLine;
             retorno += "Descrição: " + this.Descricao + Environment.NewLine;
             retorno += "Ano: " + this.Ano + Environment.NewLine;
-            retorno += "Excluído: " + this.Excluido;
+            retorno += "Excluído: " + this.Excluido + Environment.NewLine;
+            retorno += "Assistida: " + this.Assistida;
             return retorno;
         }
 
@@ -43,8 +46,16 @@ namespace dio_series
             return this.Excluido;
         }
 
+        public bool retornaAssistida(){
+            return this.Assistida;
+        }
+
         public void Excluir(){
             this.Excluido = true;
+        }
+
+        public void Assistir(){
+            this.Assistida = true;
         }
     }
 }
